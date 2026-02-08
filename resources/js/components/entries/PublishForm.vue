@@ -123,7 +123,7 @@
                                 <Heading :text="__('Published')" />
                                 <Switch
                                     :model-value="published"
-                                    :read-only="!canManagePublishState"
+                                    :disabled="!canManagePublishState"
                                     @update:model-value="setFieldValue('published', $event)"
                                 />
                             </Panel>
@@ -682,6 +682,7 @@ export default {
                 this.collection = data.collection;
                 this.title = data.editing ? data.values.title : this.title;
                 this.actions = data.actions;
+				this.itemActions = data.itemActions;
                 this.fieldset = data.blueprint;
                 this.permalink = data.permalink;
                 this.site = localization.handle;
